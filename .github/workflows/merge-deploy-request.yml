@@ -1,0 +1,20 @@
+name: Deploy a deploy request
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  deploy_deploy_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Deploy a deploy request
+        uses: planetscale/deploy-deploy-request-action@v1
+        with:
+          org_name: townsenddillon-dt
+          database_name: discord_clone
+          branch_name: dev
+        env:
+          PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+          PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
