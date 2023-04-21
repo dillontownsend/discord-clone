@@ -17,6 +17,12 @@ model Example {
   updatedAt DateTime @updatedAt
 }
 
+model Todo {
+  id       String  @id @default(cuid())
+  text     String
+  complete Boolean
+}
+
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
