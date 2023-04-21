@@ -2,6 +2,7 @@ name: Merge schema changes
 on:
   pull_request:
     types: [closed]
+    paths: 'prisma/schema.prisma'
 
 jobs:
   merge_changes:
