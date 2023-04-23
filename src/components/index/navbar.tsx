@@ -7,6 +7,7 @@ import * as Separator from "@radix-ui/react-separator";
 import { useEffect, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { TbDownload } from "react-icons/tb";
+import { AnimatePresence, motion } from "framer-motion";
 
 const pages = [
   {
@@ -101,59 +102,76 @@ const Navbar = () => {
           </Dialog.Trigger>
         </div>
       </nav>
-      <Dialog.Portal>
-        <Dialog.Overlay
-          className={"fixed inset-0 bg-black/30 backdrop-blur-sm"}
-        />
-        <Dialog.Content>
-          <div
-            className={
-              "fixed inset-y-0 right-0  flex w-[330px] flex-col justify-between rounded-bl-lg rounded-tl-lg bg-white p-6"
-            }
-          >
-            <div className={"flex items-start"}>
-              <div className={"basis-full overflow-y-auto"}>
-                <Image
-                  src={"/discord-logo-black.svg"}
-                  alt={"discord"}
-                  width={124}
-                  height={34}
-                  className={"h-[34px] w-[124px]"}
-                />
-                <Separator.Root className={"mb-4 mt-6 h-[1px] bg-[#ebedef]"} />
-                <nav>
-                  <Link
-                    href={"/"}
-                    className={`block rounded-lg bg-[#f6f6f6] px-4 py-2 text-base font-normal leading-6 text-[#00b0f4] hover:underline`}
-                  >
-                    Home
-                  </Link>
-                  {pages.map((page) => (
-                    <Link
-                      href={page.url}
-                      key={page.name}
-                      className={`block px-4 py-2 text-base font-normal leading-6 text-[#23272a] hover:underline`}
-                    >
-                      {page.name}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-              <Dialog.Close>
-                <IoCloseOutline size={28} className={"text-[#23272a]"} />
-              </Dialog.Close>
-            </div>
-            <button
-              className={
-                "flex items-center justify-center gap-2 rounded-[40px] bg-[#5865f2] px-4 py-[7px] text-[14px] text-white leading-6 font-normal"
-              }
-            >
-              <TbDownload size={24} />
-              <div>Download for Mac</div>
-            </button>
-          </div>
-        </Dialog.Content>
-      </Dialog.Portal>
+
+      <AnimatePresence>
+        {open ? (
+          <Dialog.Portal forceMount={true}>
+            <Dialog.Overlay asChild={true}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className={"fixed inset-0 bg-black/30 backdrop-blur-sm"}
+              />
+            </Dialog.Overlay>
+            <Dialog.Content asChild={true}>
+              <motion.div
+                initial={{ x: 330 }}
+                animate={{ x: 0 }}
+                exit={{ x: 330 }}
+                transition={{ duration: 0.2 }}
+                className={
+                  "fixed inset-y-0 right-0  flex w-[330px] flex-col justify-between rounded-bl-lg rounded-tl-lg bg-white p-6"
+                }
+              >
+                <div className={"flex items-start"}>
+                  <div className={"basis-full overflow-y-auto"}>
+                    <Image
+                      src={"/discord-logo-black.svg"}
+                      alt={"discord"}
+                      width={124}
+                      height={34}
+                      className={"h-[34px] w-[124px]"}
+                    />
+                    <Separator.Root
+                      className={"mb-4 mt-6 h-[1px] bg-[#ebedef]"}
+                    />
+                    <nav>
+                      <Link
+                        href={"/"}
+                        className={`block rounded-lg bg-[#f6f6f6] px-4 py-2 text-base font-normal leading-6 text-[#00b0f4] hover:underline`}
+                      >
+                        Home
+                      </Link>
+                      {pages.map((page) => (
+                        <Link
+                          href={page.url}
+                          key={page.name}
+                          className={`block px-4 py-2 text-base font-normal leading-6 text-[#23272a] hover:underline`}
+                        >
+                          {page.name}
+                        </Link>
+                      ))}
+                    </nav>
+                  </div>
+                  <Dialog.Close>
+                    <IoCloseOutline size={28} className={"text-[#23272a]"} />
+                  </Dialog.Close>
+                </div>
+                <button
+                  className={
+                    "flex items-center justify-center gap-2 rounded-[40px] bg-[#5865f2] px-4 py-[7px] text-[14px] font-normal leading-6 text-white"
+                  }
+                >
+                  <TbDownload size={24} />
+                  <div>Download for Mac</div>
+                </button>
+              </motion.div>
+            </Dialog.Content>
+          </Dialog.Portal>
+        ) : null}
+      </AnimatePresence>
     </Dialog.Root>
   );
 };
