@@ -2,6 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { TfiMenu } from "react-icons/tfi";
+import * as Dialog from "@radix-ui/react-dialog";
+import * as Separator from "@radix-ui/react-separator";
+import { useEffect, useState } from "react";
+import { IoCloseOutline } from "react-icons/io5";
+import { TbDownload } from "react-icons/tb";
 
 const pages = [
   {
@@ -36,50 +41,120 @@ const pages = [
 
 const Navbar = () => {
   const { data: sessionData } = useSession();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const closeDialogOnLargeScreen = () => {
+      if (window.innerWidth >= 1024) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", closeDialogOnLargeScreen);
+
+    return () => window.removeEventListener("resize", closeDialogOnLargeScreen);
+  }, []);
 
   return (
-    <nav
-      className={
-        "mx-auto flex h-20 max-w-[1260px] items-center justify-between px-6 md:px-10"
-      }
-    >
-      <Link href={"/"}>
-        <Image
-          src={"/discord-logo-white.svg"}
-          alt={"discord"}
-          width={124}
-          height={34}
-          className={"h-[34px] w-[124px]"}
-        />
-      </Link>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <nav
+        className={
+          "mx-auto flex h-20 max-w-[1260px] items-center justify-between px-6 md:px-10"
+        }
+      >
+        <Link href={"/"}>
+          <Image
+            src={"/discord-logo-white.svg"}
+            alt={"discord"}
+            width={124}
+            height={34}
+            className={"h-[34px] w-[124px]"}
+          />
+        </Link>
 
-      <div className={"hidden lg:block"}>
-        {pages.map((page) => (
-          <Link
-            key={page.name}
-            href={page.url}
+        <div className={"hidden lg:block"}>
+          {pages.map((page) => (
+            <Link
+              key={page.name}
+              href={page.url}
+              className={
+                "m-[10px] p-[10px] text-base font-medium text-white hover:underline"
+              }
+            >
+              {page.name}
+            </Link>
+          ))}
+        </div>
+
+        <div className={"flex min-w-[124px] items-center justify-end gap-5"}>
+          <button
+            type={"button"}
             className={
-              "m-[10px] p-[10px] text-base font-semibold text-white hover:underline"
+              "rounded-[40px] bg-white px-4 py-[7px] text-[14px] font-medium leading-6 text-[#23272a] transition-all duration-200 hover:text-[#5865f2] hover:shadow-xl"
+            }
+            onClick={sessionData ? () => void signOut() : () => void signIn()}
+          >
+            {sessionData ? "Open Discord" : "Login"}
+          </button>
+          <Dialog.Trigger>
+            <TfiMenu size={28} className={"text-white lg:hidden"} />
+          </Dialog.Trigger>
+        </div>
+      </nav>
+      <Dialog.Portal>
+        <Dialog.Overlay
+          className={"fixed inset-0 bg-black/30 backdrop-blur-sm"}
+        />
+        <Dialog.Content>
+          <div
+            className={
+              "fixed inset-y-0 right-0  flex w-[330px] flex-col justify-between rounded-bl-lg rounded-tl-lg bg-white p-6"
             }
           >
-            {page.name}
-          </Link>
-        ))}
-      </div>
-
-      <div className={"flex min-w-[124px] items-center justify-end gap-5"}>
-        <button
-          type={"button"}
-          className={
-            "rounded-[40px] bg-white px-4 py-[7px] text-[14px] font-medium leading-6 text-[#23272a] transition-all duration-200 hover:text-[#5865f2] hover:shadow-xl"
-          }
-          onClick={sessionData ? () => void signOut() : () => void signIn()}
-        >
-          {sessionData ? "Open Discord" : "Login"}
-        </button>
-        <TfiMenu size={30} className={"cursor-pointer text-white lg:hidden"} />
-      </div>
-    </nav>
+            <div className={"flex items-start"}>
+              <div className={"basis-full overflow-y-auto"}>
+                <Image
+                  src={"/discord-logo-black.svg"}
+                  alt={"discord"}
+                  width={124}
+                  height={34}
+                  className={"h-[34px] w-[124px]"}
+                />
+                <Separator.Root className={"mb-4 mt-6 h-[1px] bg-[#ebedef]"} />
+                <nav>
+                  <Link
+                    href={"/"}
+                    className={`block rounded-lg bg-[#f6f6f6] px-4 py-2 text-base font-normal leading-6 text-[#00b0f4] hover:underline`}
+                  >
+                    Home
+                  </Link>
+                  {pages.map((page) => (
+                    <Link
+                      href={page.url}
+                      key={page.name}
+                      className={`block px-4 py-2 text-base font-normal leading-6 text-[#23272a] hover:underline`}
+                    >
+                      {page.name}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+              <Dialog.Close>
+                <IoCloseOutline size={28} className={"text-[#23272a]"} />
+              </Dialog.Close>
+            </div>
+            <button
+              className={
+                "flex items-center justify-center gap-2 rounded-[40px] bg-[#5865f2] px-4 py-[7px] text-[14px] text-white leading-6 font-normal"
+              }
+            >
+              <TbDownload size={24} />
+              <div>Download for Mac</div>
+            </button>
+          </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 };
 

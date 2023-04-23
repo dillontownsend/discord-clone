@@ -13,7 +13,7 @@ const ggSans = localFont({
     {
       path: "../../public/ggsans-Normal.woff2",
       weight: "400",
-      style: "normal",
+      style: "regular",
     },
     {
       path: "../../public/ggsans-Medium.woff2",
@@ -23,17 +23,17 @@ const ggSans = localFont({
     {
       path: "../../public/ggsans-Semibold.woff2",
       weight: "600",
-      style: "normal",
+      style: "semibold",
     },
     {
       path: "../../public/ggsans-Bold.woff2",
       weight: "700",
-      style: "normal",
+      style: "bold",
     },
     {
       path: "../../public/ggsans-ExtraBold.woff2",
       weight: "800",
-      style: "normal",
+      style: "extrabold",
     },
   ],
   variable: "--font-ggSans",
