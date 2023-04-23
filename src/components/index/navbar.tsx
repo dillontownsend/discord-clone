@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { TbDownload } from "react-icons/tb";
 import { AnimatePresence, motion } from "framer-motion";
+import { ggSans } from "~/pages/_app";
 
 const pages = [
   {
@@ -65,7 +66,7 @@ const Navbar = () => {
       >
         <Link href={"/"}>
           <Image
-            src={"/discord-logo-white.svg"}
+            src={"/branding/discord-logo-white.svg"}
             alt={"discord"}
             width={124}
             height={34}
@@ -79,7 +80,7 @@ const Navbar = () => {
               key={page.name}
               href={page.url}
               className={
-                "m-[10px] p-[10px] text-base font-medium text-white hover:underline"
+                "m-[10px] p-[10px] text-base font-semibold text-white hover:underline"
               }
             >
               {page.name}
@@ -112,7 +113,7 @@ const Navbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className={"fixed inset-0 bg-black/30 backdrop-blur-sm"}
+                className={"fixed inset-0 bg-black/30"}
               />
             </Dialog.Overlay>
             <Dialog.Content asChild={true}>
@@ -128,7 +129,7 @@ const Navbar = () => {
                 <div className={"flex items-start"}>
                   <div className={"basis-full overflow-y-auto"}>
                     <Image
-                      src={"/discord-logo-black.svg"}
+                      src={"/branding/discord-logo-black.svg"}
                       alt={"discord"}
                       width={124}
                       height={34}
@@ -140,7 +141,7 @@ const Navbar = () => {
                     <nav>
                       <Link
                         href={"/"}
-                        className={`block rounded-lg bg-[#f6f6f6] px-4 py-2 text-base font-normal leading-6 text-[#00b0f4] hover:underline`}
+                        className={`${ggSans.variable} block rounded-lg bg-[#f6f6f6] px-4 py-2 font-ggSans text-base font-normal leading-6 text-[#00b0f4] hover:underline`}
                       >
                         Home
                       </Link>
@@ -148,7 +149,7 @@ const Navbar = () => {
                         <Link
                           href={page.url}
                           key={page.name}
-                          className={`block px-4 py-2 text-base font-normal leading-6 text-[#23272a] hover:underline`}
+                          className={`${ggSans.variable} block px-4 py-2 font-ggSans text-base font-normal leading-6 text-[#23272a] hover:underline`}
                         >
                           {page.name}
                         </Link>
@@ -161,11 +162,13 @@ const Navbar = () => {
                 </div>
                 <button
                   className={
-                    "flex items-center justify-center gap-2 rounded-[40px] bg-[#5865f2] px-4 py-[7px] text-[14px] font-normal leading-6 text-white"
+                    "flex items-center justify-center gap-2 rounded-[40px] bg-[#5865f2] px-4 py-[7px] text-[14px] font-normal leading-6 text-white  transition-all duration-200 hover:bg-[#7983F5] hover:shadow-xl"
                   }
                 >
                   <TbDownload size={24} />
-                  <div>Download for Mac</div>
+                  <div className={`${ggSans.variable} font-ggSans font-medium`}>
+                    Download for Mac
+                  </div>
                 </button>
               </motion.div>
             </Dialog.Content>
