@@ -8,7 +8,7 @@ import "~/styles/globals.css";
 import localFont from "next/font/local";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-const ggSans = localFont({
+export const ggSans = localFont({
   src: [
     {
       path: "../../public/ggsans-Normal.woff2",
