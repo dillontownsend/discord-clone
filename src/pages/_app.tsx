@@ -11,27 +11,27 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 export const ggSans = localFont({
   src: [
     {
-      path: "../../public/ggsans-Normal.woff2",
+      path: "../../public/fonts/ggsans-Normal.woff2",
       weight: "400",
       style: "regular",
     },
     {
-      path: "../../public/ggsans-Medium.woff2",
+      path: "../../public/fonts/ggsans-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../public/ggsans-Semibold.woff2",
+      path: "../../public/fonts/ggsans-Semibold.woff2",
       weight: "600",
       style: "semibold",
     },
     {
-      path: "../../public/ggsans-Bold.woff2",
+      path: "../../public/fonts/ggsans-Bold.woff2",
       weight: "700",
       style: "bold",
     },
     {
-      path: "../../public/ggsans-ExtraBold.woff2",
+      path: "../../public/fonts/ggsans-ExtraBold.woff2",
       weight: "800",
       style: "extrabold",
     },
@@ -42,7 +42,7 @@ export const ggSans = localFont({
 const antiqueOlive = localFont({
   src: [
     {
-      path: "../../public/aqct.ttf",
+      path: "../../public/fonts/aqct.ttf",
       weight: "800",
       style: "extrabold",
     },

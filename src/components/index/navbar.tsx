@@ -66,7 +66,7 @@ const Navbar = () => {
       >
         <Link href={"/"}>
           <Image
-            src={"/discord-logo-white.svg"}
+            src={"/branding/discord-logo-white.svg"}
             alt={"discord"}
             width={124}
             height={34}
@@ -129,7 +129,7 @@ const Navbar = () => {
                 <div className={"flex items-start"}>
                   <div className={"basis-full overflow-y-auto"}>
                     <Image
-                      src={"/discord-logo-black.svg"}
+                      src={"/branding/discord-logo-black.svg"}
                       alt={"discord"}
                       width={124}
                       height={34}
