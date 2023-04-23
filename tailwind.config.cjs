@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        ggSans: ["var(--font-ggSans)"]
+        ggSans: ["var(--font-ggSans)"],
+        antiqueOlive: ["var(--font-antiqueOlive)"]
       }
     }
   },

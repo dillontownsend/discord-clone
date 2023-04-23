@@ -38,13 +38,27 @@ export const ggSans = localFont({
   ],
   variable: "--font-ggSans",
 });
+
+const antiqueOlive = localFont({
+  src: [
+    {
+      path: "../../public/aqct.ttf",
+      weight: "800",
+      style: "extrabold",
+    },
+  ],
+  variable: "--font-antiqueOlive",
+});
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   return (
     <SessionProvider session={session}>
-      <main className={`${ggSans.variable} font-ggSans`}>
+      <main
+        className={`${ggSans.variable} font-ggSans ${antiqueOlive.variable}`}
+      >
         <Component {...pageProps} />
       </main>
       <ReactQueryDevtools initialIsOpen={false} />
