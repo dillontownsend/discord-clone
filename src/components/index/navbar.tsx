@@ -162,7 +162,7 @@ const Navbar = () => {
                 </div>
                 <button
                   className={
-                    "flex items-center justify-center gap-2 rounded-[40px] bg-[#5865f2] px-4 py-[7px] text-[14px] font-normal leading-6 text-white"
+                    "flex items-center justify-center gap-2 rounded-[40px] bg-[#5865f2] px-4 py-[7px] text-[14px] font-normal leading-6 text-white  transition-all duration-200 hover:bg-[#7983F5] hover:shadow-xl"
                   }
                 >
                   <TbDownload size={24} />

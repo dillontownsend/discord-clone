@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "~/components/index/navbar";
+import { TbDownload } from "react-icons/tb";
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +14,49 @@ const Home: NextPage = () => {
 
       <main className={"min-h-[626px] bg-[#404eed]"}>
         <Navbar />
+
+        <section>
+          <div className={"mx-auto px-6 py-14 text-white"}>
+            <div>
+              <div
+                className={
+                  "font-antiqueOlive text-2xl font-extrabold uppercase"
+                }
+              >
+                Imagine a Place...
+              </div>
+              <div className={"mt-6 text-base leading-[1.625]"}>
+                ...where you can belong to a school club, a gaming group, or a
+                worldwide art community. Where just you and a handful of friends
+                can spend time together. A place that makes it easy to talk
+                every day and hang out more often.
+              </div>
+            </div>
+
+            <div className={"mt-6 flex flex-wrap gap-6"}>
+              <button
+                className={
+                  "flex items-center justify-center gap-2 rounded-[28px] bg-white px-8 py-4 text-[#23272a] transition-all duration-200 hover:text-[#5865f2] hover:shadow-xl"
+                }
+              >
+                <TbDownload size={24} />
+                <div className={"text-[20px] font-medium leading-6"}>
+                  Download for Mac
+                </div>
+              </button>
+
+              <button
+                className={
+                  "flex items-center justify-center gap-2 rounded-[28px] bg-[#23272a] px-8 py-4 text-white transition-all duration-200 hover:bg-[#303338] hover:shadow-xl"
+                }
+              >
+                <div className={"text-[20px] font-medium leading-6"}>
+                  Open Discord in your browser
+                </div>
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
