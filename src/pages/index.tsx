@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={"bg-[#404eed]"}>
+      <main className={"min-h-[626px] bg-[#404eed]"}>
         <Navbar />
       </main>
     </>
