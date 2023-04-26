@@ -12,10 +12,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={"min-h-[626px] bg-[#404eed]"}>
+      <main className={"relative min-h-[626px] bg-[#404eed] md:pb-20 lg:pb-0"}>
         <Navbar />
 
-        <section className={"relative md:pb-20 lg:pb-0"}>
+        <section className={""}>
           <div
             className={
               "relative z-10 mx-auto max-w-[1260px] px-6 py-14 text-white md:grid md:grid-cols-8 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px] lg:text-center"
@@ -86,7 +86,14 @@ const Home: NextPage = () => {
               src="/index/hills.svg"
               alt="hills"
               className={
-                "absolute left-1/2 bottom-0 top-auto -ml-[1320px] block w-[2560px] max-w-none"
+                "absolute bottom-0 left-1/2 top-auto -ml-[1320px] block w-[2560px] max-w-none"
+              }
+            />
+            <img
+              src="/index/bar.svg"
+              alt="bar"
+              className={
+                "absolute bottom-0 left-1/2 -ml-[70px] block w-[615px] max-w-none"
               }
             />
           </div>
