@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className={'overflow-x-hidden'}>
         <section
           className={"relative min-h-[626px] bg-[#404eed] md:pb-20 lg:pb-0"}
         >
@@ -82,7 +82,9 @@ const Home: NextPage = () => {
           </div>
 
           <div
-            className={"absolute bottom-0 top-0 hidden h-full w-full md:block pointer-events-none"}
+            className={
+              "pointer-events-none absolute bottom-0 top-0 hidden h-full w-full md:block"
+            }
           >
             <img
               src="/index/hills.svg"
@@ -105,6 +107,42 @@ const Home: NextPage = () => {
                 "absolute bottom-0 left-1/2 -ml-[70px] block w-[615px] max-w-none lg:ml-[370px]"
               }
             />
+          </div>
+        </section>
+
+        <section className={"flex w-full flex-col items-center"}>
+          <div
+            className={
+              "grid max-w-[1260px] grid-cols-4 px-6 py-14 md:grid-cols-8 md:gap-5 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px]"
+            }
+          >
+            <img
+              src="/index/study-group.svg"
+              alt="study group"
+              className={"col-span-4 mt-6 md:my-auto lg:col-span-7"}
+            />
+            <div
+              className={
+                "col-span-4 mt-5 text-[#23272a] md:mt-0 md:flex md:flex-col md:justify-center lg:col-start-9"
+              }
+            >
+              <div
+                className={
+                  "text-xl font-extrabold md:text-5xl md:leading-[120%]"
+                }
+              >
+                Create an invite-only place where you belong
+              </div>
+              <div
+                className={
+                  "mt-6 text-base leading-relaxed lg:text-xl lg:leading-relaxed"
+                }
+              >
+                Discord servers are organized into topic-based channels where
+                you can collaborate, share, and just talk about your day without
+                clogging up a group chat.
+              </div>
+            </div>
           </div>
         </section>
       </main>
