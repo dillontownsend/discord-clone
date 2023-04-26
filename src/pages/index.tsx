@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "~/components/index/navbar";
 import { TbDownload } from "react-icons/tb";
+import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
   return (
@@ -12,9 +13,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className={""}>
         <section
-          className={"relative min-h-[626px] bg-[#404eed] md:pb-20 lg:pb-0"}
+          className={
+            "relative min-h-[626px] overflow-x-hidden bg-[#404eed] md:pb-20 lg:pb-0"
+          }
         >
           <Navbar />
 
@@ -82,7 +85,9 @@ const Home: NextPage = () => {
           </div>
 
           <div
-            className={"absolute bottom-0 top-0 hidden h-full w-full md:block pointer-events-none"}
+            className={
+              "pointer-events-none absolute bottom-0 top-0 hidden h-full w-full md:block"
+            }
           >
             <img
               src="/index/hills.svg"
@@ -106,6 +111,46 @@ const Home: NextPage = () => {
               }
             />
           </div>
+        </section>
+
+        <section className={"flex w-full flex-col items-center"}>
+          <motion.div
+            className={
+              "grid max-w-[1260px] grid-cols-4 px-6 py-14 md:grid-cols-8 md:gap-5 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px]"
+            }
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-90px" }}
+            transition={{ type: "tween", duration: 0.6, ease: "easeOut" }}
+          >
+            <img
+              src="/index/study-group.svg"
+              alt="study group"
+              className={"col-span-4 mt-6 md:my-auto lg:col-span-7"}
+            />
+            <div
+              className={
+                "col-span-4 mt-5 text-[#23272a] md:mt-0 md:flex md:flex-col md:justify-center lg:col-start-9"
+              }
+            >
+              <div
+                className={
+                  "text-xl font-extrabold md:text-5xl md:leading-[120%]"
+                }
+              >
+                Create an invite-only place where you belong
+              </div>
+              <div
+                className={
+                  "mt-6 text-base leading-relaxed lg:text-xl lg:leading-relaxed"
+                }
+              >
+                Discord servers are organized into topic-based channels where
+                you can collaborate, share, and just talk about your day without
+                clogging up a group chat.
+              </div>
+            </div>
+          </motion.div>
         </section>
       </main>
     </>

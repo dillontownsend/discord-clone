@@ -98,8 +98,8 @@ const Navbar = () => {
           >
             {sessionData ? "Open Discord" : "Login"}
           </button>
-          <Dialog.Trigger>
-            <TfiMenu size={28} className={"text-white lg:hidden"} />
+          <Dialog.Trigger className={"lg:hidden"}>
+            <TfiMenu size={28} className={"text-white"} />
           </Dialog.Trigger>
         </div>
       </nav>
@@ -107,21 +107,21 @@ const Navbar = () => {
       <AnimatePresence>
         {open ? (
           <Dialog.Portal forceMount={true}>
-            <Dialog.Overlay asChild={true} className={'z-20'}>
+            <Dialog.Overlay asChild={true} className={"z-20"}>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.16 }}
                 className={"fixed inset-0 bg-black/30"}
               />
             </Dialog.Overlay>
-            <Dialog.Content asChild={true} className={'z-20'}>
+            <Dialog.Content asChild={true} className={"z-20"}>
               <motion.div
                 initial={{ x: 330 }}
                 animate={{ x: 0 }}
                 exit={{ x: 330 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.16 }}
                 className={
                   "fixed inset-y-0 right-0  flex w-[330px] flex-col justify-between rounded-bl-lg rounded-tl-lg bg-white p-6"
                 }
