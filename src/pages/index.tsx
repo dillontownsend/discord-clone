@@ -16,44 +16,58 @@ const Home: NextPage = () => {
         <Navbar />
 
         <section>
-          <div className={"mx-auto px-6 py-14 text-white"}>
-            <div>
+          <div
+            className={
+              "mx-auto max-w-[1260px] px-6 py-14 text-white md:grid md:grid-cols-8 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px] lg:text-center"
+            }
+          >
+            <div className={"md:col-span-5 lg:col-span-8 lg:col-start-3"}>
+              <div>
+                <div
+                  className={
+                    "font-antiqueOlive text-2xl font-extrabold uppercase md:text-[56px] md:leading-[1]"
+                  }
+                >
+                  Imagine a Place...
+                </div>
+                <div
+                  className={
+                    "mt-6 text-base leading-[1.625] md:mt-10 md:text-xl lg:leading-relaxed"
+                  }
+                >
+                  ...where you can belong to a school club, a gaming group, or a
+                  worldwide art community. Where just you and a handful of
+                  friends can spend time together. A place that makes it easy to
+                  talk every day and hang out more often.
+                </div>
+              </div>
+
               <div
                 className={
-                  "font-antiqueOlive text-2xl font-extrabold uppercase"
+                  "mt-6 flex flex-wrap gap-6 md:mt-8 lg:justify-center"
                 }
               >
-                Imagine a Place...
-              </div>
-              <div className={"mt-6 text-base leading-[1.625]"}>
-                ...where you can belong to a school club, a gaming group, or a
-                worldwide art community. Where just you and a handful of friends
-                can spend time together. A place that makes it easy to talk
-                every day and hang out more often.
-              </div>
-            </div>
+                <button
+                  className={
+                    "flex items-center justify-center gap-2 rounded-[28px] bg-white px-8 py-4 text-[#23272a] transition-all duration-200 hover:text-[#5865f2] hover:shadow-xl"
+                  }
+                >
+                  <TbDownload size={24} />
+                  <div className={"text-[20px] font-medium leading-6"}>
+                    Download for Mac
+                  </div>
+                </button>
 
-            <div className={"mt-6 flex flex-wrap gap-6"}>
-              <button
-                className={
-                  "flex items-center justify-center gap-2 rounded-[28px] bg-white px-8 py-4 text-[#23272a] transition-all duration-200 hover:text-[#5865f2] hover:shadow-xl"
-                }
-              >
-                <TbDownload size={24} />
-                <div className={"text-[20px] font-medium leading-6"}>
-                  Download for Mac
-                </div>
-              </button>
-
-              <button
-                className={
-                  "flex items-center justify-center gap-2 rounded-[28px] bg-[#23272a] px-8 py-4 text-white transition-all duration-200 hover:bg-[#303338] hover:shadow-xl"
-                }
-              >
-                <div className={"text-[20px] font-medium leading-6"}>
-                  Open Discord in your browser
-                </div>
-              </button>
+                <button
+                  className={
+                    "flex items-center justify-center gap-2 rounded-[28px] bg-[#23272a] px-8 py-4 text-white transition-all duration-200 hover:bg-[#303338] hover:shadow-xl"
+                  }
+                >
+                  <div className={"text-[20px] font-medium leading-6"}>
+                    Open Discord in your browser
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </section>
