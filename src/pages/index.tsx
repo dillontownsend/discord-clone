@@ -15,10 +15,10 @@ const Home: NextPage = () => {
       <main className={"min-h-[626px] bg-[#404eed]"}>
         <Navbar />
 
-        <section>
+        <section className={"relative md:pb-20 lg:pb-0"}>
           <div
             className={
-              "mx-auto max-w-[1260px] px-6 py-14 text-white md:grid md:grid-cols-8 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px] lg:text-center"
+              "relative z-10 mx-auto max-w-[1260px] px-6 py-14 text-white md:grid md:grid-cols-8 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px] lg:text-center"
             }
           >
             <div className={"md:col-span-5 lg:col-span-8 lg:col-start-3"}>
@@ -69,6 +69,26 @@ const Home: NextPage = () => {
                 </button>
               </div>
             </div>
+          </div>
+
+          <div className={"mx-auto max-w-[609px] md:hidden"}>
+            <img
+              src={"/index/shoes.svg"}
+              alt={"shoes"}
+              className={"-ml-20 w-full"}
+            />
+          </div>
+
+          <div
+            className={"absolute bottom-0 top-0 hidden h-full w-full md:block"}
+          >
+            <img
+              src="/index/hills.svg"
+              alt="hills"
+              className={
+                "absolute left-1/2 bottom-0 top-auto -ml-[1320px] block w-[2560px] max-w-none"
+              }
+            />
           </div>
         </section>
       </main>
