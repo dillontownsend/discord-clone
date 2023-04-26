@@ -12,10 +12,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={"relative min-h-[626px] bg-[#404eed] md:pb-20 lg:pb-0"}>
-        <Navbar />
+      <main>
+        <section
+          className={"relative min-h-[626px] bg-[#404eed] md:pb-20 lg:pb-0"}
+        >
+          <Navbar />
 
-        <section className={""}>
           <div
             className={
               "relative z-10 mx-auto max-w-[1260px] px-6 py-14 text-white md:grid md:grid-cols-8 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px] lg:text-center"
@@ -80,7 +82,7 @@ const Home: NextPage = () => {
           </div>
 
           <div
-            className={"absolute bottom-0 top-0 hidden h-full w-full md:block"}
+            className={"absolute bottom-0 top-0 hidden h-full w-full md:block pointer-events-none"}
           >
             <img
               src="/index/hills.svg"
@@ -90,10 +92,17 @@ const Home: NextPage = () => {
               }
             />
             <img
+              src="/index/shoes.svg"
+              alt="shoes"
+              className={
+                "absolute bottom-0 left-1/2 -ml-[1030px] hidden w-[689px] max-w-none lg:block"
+              }
+            />
+            <img
               src="/index/bar.svg"
               alt="bar"
               className={
-                "absolute bottom-0 left-1/2 -ml-[70px] block w-[615px] max-w-none"
+                "absolute bottom-0 left-1/2 -ml-[70px] block w-[615px] max-w-none lg:ml-[370px]"
               }
             />
           </div>
