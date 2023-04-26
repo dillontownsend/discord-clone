@@ -107,7 +107,7 @@ const Navbar = () => {
       <AnimatePresence>
         {open ? (
           <Dialog.Portal forceMount={true}>
-            <Dialog.Overlay asChild={true}>
+            <Dialog.Overlay asChild={true} className={'z-20'}>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -116,7 +116,7 @@ const Navbar = () => {
                 className={"fixed inset-0 bg-black/30"}
               />
             </Dialog.Overlay>
-            <Dialog.Content asChild={true}>
+            <Dialog.Content asChild={true} className={'z-20'}>
               <motion.div
                 initial={{ x: 330 }}
                 animate={{ x: 0 }}
