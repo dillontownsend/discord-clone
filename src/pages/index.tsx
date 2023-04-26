@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Navbar from "~/components/index/navbar";
 import { TbDownload } from "react-icons/tb";
+import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
   return (
@@ -12,9 +13,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={'overflow-x-hidden'}>
+      <main className={""}>
         <section
-          className={"relative min-h-[626px] bg-[#404eed] md:pb-20 lg:pb-0"}
+          className={
+            "relative min-h-[626px] overflow-x-hidden bg-[#404eed] md:pb-20 lg:pb-0"
+          }
         >
           <Navbar />
 
@@ -111,10 +114,14 @@ const Home: NextPage = () => {
         </section>
 
         <section className={"flex w-full flex-col items-center"}>
-          <div
+          <motion.div
             className={
               "grid max-w-[1260px] grid-cols-4 px-6 py-14 md:grid-cols-8 md:gap-5 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px]"
             }
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-90px" }}
+            transition={{ type: "tween", duration: 0.6, ease: "easeOut" }}
           >
             <img
               src="/index/study-group.svg"
@@ -143,7 +150,7 @@ const Home: NextPage = () => {
                 clogging up a group chat.
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
     </>

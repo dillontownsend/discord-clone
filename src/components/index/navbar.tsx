@@ -112,7 +112,7 @@ const Navbar = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.16 }}
                 className={"fixed inset-0 bg-black/30"}
               />
             </Dialog.Overlay>
@@ -121,7 +121,7 @@ const Navbar = () => {
                 initial={{ x: 330 }}
                 animate={{ x: 0 }}
                 exit={{ x: 330 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.16 }}
                 className={
                   "fixed inset-y-0 right-0  flex w-[330px] flex-col justify-between rounded-bl-lg rounded-tl-lg bg-white p-6"
                 }
