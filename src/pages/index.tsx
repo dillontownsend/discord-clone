@@ -3,6 +3,7 @@ import Head from "next/head";
 import Navbar from "~/components/index/navbar";
 import { TbDownload } from "react-icons/tb";
 import { motion } from "framer-motion";
+import Footer from "~/components/index/footer";
 
 const Home: NextPage = () => {
   return (
@@ -280,12 +281,12 @@ const Home: NextPage = () => {
 
         <section
           className={
-            "flex max-w-[1260px] flex-col items-center overflow-x-hidden bg-[#f6f6f6] "
+            "flex flex-col items-center overflow-x-hidden bg-[#f6f6f6] "
           }
         >
           <div
             className={
-              "relative mb-14 flex flex-col items-center justify-center px-6 md:mb-20 lg:mb-[120px]"
+              "relative mb-14 flex max-w-[1260px] flex-col items-center justify-center px-6 md:mb-20 lg:mb-[120px]"
             }
           >
             <div className={"absolute top-0 flex justify-center"}>
@@ -312,6 +313,8 @@ const Home: NextPage = () => {
             </button>
           </div>
         </section>
+
+        {/*<Footer />*/}
       </main>
     </>
   );
