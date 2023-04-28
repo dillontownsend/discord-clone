@@ -6,7 +6,7 @@ import {
   FaYoutube,
   FaTiktok,
 } from "react-icons/fa";
-import { Session } from "next-auth";
+import { type Session } from "next-auth";
 import { signIn } from "next-auth/react";
 
 interface Props {
@@ -57,9 +57,11 @@ const Footer = ({ sessionData }: Props) => {
       }
     >
       <div
-        className={"grid w-full max-w-[1260px] grid-cols-4 gap-[0_20px] px-6"}
+        className={
+          "grid w-full max-w-[1260px] grid-cols-4 gap-[0_20px] px-6 md:grid-cols-8 md:px-10  lg:grid-cols-12"
+        }
       >
-        <div className="col-span-4 mb-14 flex flex-col">
+        <div className="col-span-4 mb-14 flex flex-col md:col-span-3 md:row-span-2">
           <div className="font-antiqueOlive text-[32px] uppercase leading-[95%] text-[#5875f2]">
             Imagine a place
           </div>
@@ -77,7 +79,7 @@ const Footer = ({ sessionData }: Props) => {
           </div>
         </div>
 
-        <div className="hidden grid-cols-[0]"></div>
+        <div className="hidden grid-cols-[0] md:col-span-1 md:row-span-2 md:block"></div>
 
         {categories.map((category) => (
           <div key={category.title} className="col-span-2 mb-10">
@@ -97,9 +99,11 @@ const Footer = ({ sessionData }: Props) => {
       </div>
 
       <div
-        className={"grid w-full max-w-[1260px] grid-cols-4 gap-[0_20px] px-6"}
+        className={
+          "grid w-full max-w-[1260px] grid-cols-4 gap-[0_20px] px-6 md:grid-cols-8 md:px-10"
+        }
       >
-        <div className="col-span-4">
+        <div className="col-span-4 md:col-span-8">
           <div className="mb-8 h-[1px] w-full bg-[#5865f2]"></div>
           <div className="flex items-center justify-between">
             <img
