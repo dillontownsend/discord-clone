@@ -4,8 +4,11 @@ import Navbar from "~/components/index/navbar";
 import { TbDownload } from "react-icons/tb";
 import { motion } from "framer-motion";
 import Footer from "~/components/index/footer";
+import { useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
+  const { data: sessionData } = useSession();
+
   return (
     <>
       <Head>
@@ -20,7 +23,7 @@ const Home: NextPage = () => {
             "relative min-h-[626px] overflow-x-hidden bg-[#404eed] md:pb-20 lg:pb-0"
           }
         >
-          <Navbar />
+          <Navbar sessionData={sessionData} />
 
           <div
             className={
@@ -314,7 +317,7 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        {/*<Footer />*/}
+        <Footer sessionData={sessionData} />
       </main>
     </>
   );
