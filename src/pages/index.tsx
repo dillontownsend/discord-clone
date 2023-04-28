@@ -120,7 +120,7 @@ const Home: NextPage = () => {
             }
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-90px" }}
+            viewport={{ once: true, margin: "-180px" }}
             transition={{ type: "tween", duration: 0.6, ease: "easeOut" }}
           >
             <img
@@ -148,6 +148,88 @@ const Home: NextPage = () => {
                 Discord servers are organized into topic-based channels where
                 you can collaborate, share, and just talk about your day without
                 clogging up a group chat.
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section className={"flex w-full flex-col items-center bg-[#f6f6f6]"}>
+          <motion.div
+            className={
+              "grid max-w-[1260px] grid-cols-4 px-6 py-14 md:grid-cols-8 md:gap-5 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px]"
+            }
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-180px" }}
+            transition={{ type: "tween", duration: 0.6, ease: "easeOut" }}
+          >
+            <img
+              src="/index/voice.svg"
+              alt="voice"
+              className={
+                "col-span-4 mt-6 md:order-2 md:my-auto lg:col-span-7 lg:col-start-6"
+              }
+            />
+            <div
+              className={
+                "col-span-4 mt-5 text-[#23272a] md:order-1 md:mt-0 md:flex md:flex-col md:justify-center "
+              }
+            >
+              <div
+                className={
+                  "text-xl font-extrabold md:text-5xl md:leading-[120%]"
+                }
+              >
+                Where hanging out is easy
+              </div>
+              <div
+                className={
+                  "mt-6 text-base leading-relaxed lg:text-xl lg:leading-relaxed"
+                }
+              >
+                Grab a seat in a voice channel when you’re free. Friends in your
+                server can see you’re around and instantly pop in to talk
+                without having to call.
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section className={"flex w-full flex-col items-center"}>
+          <motion.div
+            className={
+              "grid max-w-[1260px] grid-cols-4 px-6 py-14 md:grid-cols-8 md:gap-5 md:px-10 md:py-20 lg:grid-cols-12 lg:py-[120px]"
+            }
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-180px" }}
+            transition={{ type: "tween", duration: 0.6, ease: "easeOut" }}
+          >
+            <img
+              src="/index/coach.svg"
+              alt="coach"
+              className={"col-span-4 mt-6 md:my-auto lg:col-span-7"}
+            />
+            <div
+              className={
+                "col-span-4 mt-5 text-[#23272a] md:mt-0 md:flex md:flex-col md:justify-center lg:col-start-9"
+              }
+            >
+              <div
+                className={
+                  "text-xl font-extrabold md:text-5xl md:leading-[120%]"
+                }
+              >
+                From few to a fandom
+              </div>
+              <div
+                className={
+                  "mt-6 text-base leading-relaxed lg:text-xl lg:leading-relaxed"
+                }
+              >
+                Get any community running with moderation tools and custom
+                member access. Give members special powers, set up private
+                channels, and more.
               </div>
             </div>
           </motion.div>
