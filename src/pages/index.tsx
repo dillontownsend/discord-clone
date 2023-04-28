@@ -3,8 +3,12 @@ import Head from "next/head";
 import Navbar from "~/components/index/navbar";
 import { TbDownload } from "react-icons/tb";
 import { motion } from "framer-motion";
+import Footer from "~/components/index/footer";
+import { useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
+  const { data: sessionData } = useSession();
+
   return (
     <>
       <Head>
@@ -13,13 +17,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={""}>
+      <main>
         <section
           className={
             "relative min-h-[626px] overflow-x-hidden bg-[#404eed] md:pb-20 lg:pb-0"
           }
         >
-          <Navbar />
+          <Navbar sessionData={sessionData} />
 
           <div
             className={
@@ -277,6 +281,43 @@ const Home: NextPage = () => {
             />
           </motion.div>
         </section>
+
+        <section
+          className={
+            "flex flex-col items-center overflow-x-hidden bg-[#f6f6f6] "
+          }
+        >
+          <div
+            className={
+              "relative mb-14 flex max-w-[1260px] flex-col items-center justify-center px-6 md:mb-20 lg:mb-[120px]"
+            }
+          >
+            <div className={"absolute top-0 flex justify-center"}>
+              <img
+                src="/index/sparkle.svg"
+                alt="sparkle"
+                className={"w-[531px] max-w-none select-none"}
+              />
+            </div>
+
+            <div className={"mt-[30px] text-[32px] font-bold leading-[120%]"}>
+              Ready to start your journey?
+            </div>
+
+            <button
+              className={
+                "mt-10 flex w-full items-center justify-center gap-2 rounded-[28px] bg-[#5865f2] px-8 py-4 text-white transition-all duration-200 hover:bg-[#7983F5] hover:shadow-xl md:w-auto"
+              }
+            >
+              <TbDownload size={24} />
+              <div className={"text-[20px] font-medium leading-6"}>
+                Download for Mac
+              </div>
+            </button>
+          </div>
+        </section>
+
+        <Footer sessionData={sessionData} />
       </main>
     </>
   );

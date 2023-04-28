@@ -9,6 +9,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { TbDownload } from "react-icons/tb";
 import { AnimatePresence, motion } from "framer-motion";
 import { ggSans } from "~/pages/_app";
+import { Session } from "next-auth";
 
 const pages = [
   {
@@ -41,8 +42,11 @@ const pages = [
   },
 ];
 
-const Navbar = () => {
-  const { data: sessionData } = useSession();
+interface Props {
+  sessionData: Session | null;
+}
+
+const Navbar = ({ sessionData }: Props) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
