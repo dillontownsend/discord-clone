@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import { TfiMenu } from "react-icons/tfi";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Separator from "@radix-ui/react-separator";
@@ -9,7 +9,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { TbDownload } from "react-icons/tb";
 import { AnimatePresence, motion } from "framer-motion";
 import { ggSans } from "~/pages/_app";
-import { Session } from "next-auth";
+import { type Session } from "next-auth";
 
 const pages = [
   {
