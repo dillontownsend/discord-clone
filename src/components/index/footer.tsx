@@ -8,48 +8,53 @@ import {
 } from "react-icons/fa";
 import { type Session } from "next-auth";
 import { signIn } from "next-auth/react";
+import { env } from "~/env.mjs";
+import { useRouter } from "next/router";
+
+const categories = [
+  {
+    title: "Product",
+    links: ["Download", "Nitro", "Status"],
+  },
+  {
+    title: "Company",
+    links: ["About", "Jobs", "Branding", "Newsroom"],
+  },
+  {
+    title: "Resources",
+    links: [
+      "College",
+      "Support",
+      "Safety",
+      "Blog",
+      "Feedback",
+      "Build",
+      "StreamKit",
+      "Creators",
+      "Community",
+    ],
+  },
+  {
+    title: "Policies",
+    links: [
+      "Terms",
+      "Privacy",
+      "Cookie Settings",
+      "Guidelines",
+      "Acknowledgements",
+      "Licenses",
+      "Moderation",
+    ],
+  },
+];
 
 interface Props {
   sessionData: Session | null;
 }
 
 const Footer = ({ sessionData }: Props) => {
-  const categories = [
-    {
-      title: "Product",
-      links: ["Download", "Nitro", "Status"],
-    },
-    {
-      title: "Company",
-      links: ["About", "Jobs", "Branding", "Newsroom"],
-    },
-    {
-      title: "Resources",
-      links: [
-        "College",
-        "Support",
-        "Safety",
-        "Blog",
-        "Feedback",
-        "Build",
-        "StreamKit",
-        "Creators",
-        "Community",
-      ],
-    },
-    {
-      title: "Policies",
-      links: [
-        "Terms",
-        "Privacy",
-        "Cookie Settings",
-        "Guidelines",
-        "Acknowledgements",
-        "Licenses",
-        "Moderation",
-      ],
-    },
-  ];
+  const { push } = useRouter();
+
   return (
     <footer
       className={
@@ -118,8 +123,11 @@ const Footer = ({ sessionData }: Props) => {
               }
               onClick={
                 sessionData
-                  ? () => void console.log("session")
-                  : () => void signIn()
+                  ? () => void push("/app")
+                  : () =>
+                    void signIn(undefined, {
+                      callbackUrl: `${env.NEXT_PUBLIC_APPLICATION_URL}/app`,
+                    })
               }
             >
               {sessionData ? "Open Discord" : "Sign up"}

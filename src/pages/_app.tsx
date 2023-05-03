@@ -8,6 +8,10 @@ import "~/styles/globals.css";
 import localFont from "next/font/local";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+import type { ReactElement, ReactNode } from "react";
+import type { NextPage } from "next";
+import type { AppProps } from "next/app";
+
 export const ggSans = localFont({
   src: [
     {
@@ -50,16 +54,26 @@ const antiqueOlive = localFont({
   variable: "--font-antiqueOlive",
 });
 
+export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
-}) => {
+}: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={session as Session | null}>
       <main
         className={`${ggSans.variable} font-ggSans ${antiqueOlive.variable}`}
       >
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </main>
       <ReactQueryDevtools initialIsOpen={false} />
     </SessionProvider>

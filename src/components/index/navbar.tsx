@@ -10,6 +10,8 @@ import { TbDownload } from "react-icons/tb";
 import { AnimatePresence, motion } from "framer-motion";
 import { ggSans } from "~/pages/_app";
 import { type Session } from "next-auth";
+import { env } from "~/env.mjs";
+import { useRouter } from "next/router";
 
 const pages = [
   {
@@ -47,6 +49,8 @@ interface Props {
 }
 
 const Navbar = ({ sessionData }: Props) => {
+  const { push } = useRouter();
+
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -98,7 +102,14 @@ const Navbar = ({ sessionData }: Props) => {
             className={
               "rounded-[40px] bg-white px-4 py-[7px] text-[14px] font-medium leading-6 text-[#23272a] transition-all duration-200 hover:text-[#5865f2] hover:shadow-xl"
             }
-            onClick={sessionData ? () => void signOut() : () => void signIn()}
+            onClick={
+              sessionData
+                ? () => void push("/app")
+                : () =>
+                  void signIn(undefined, {
+                    callbackUrl: `${env.NEXT_PUBLIC_APPLICATION_URL}/app`,
+                  })
+            }
           >
             {sessionData ? "Open Discord" : "Login"}
           </button>
