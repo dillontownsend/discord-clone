@@ -4,10 +4,13 @@ import Navbar from "~/components/index/navbar";
 import { TbDownload } from "react-icons/tb";
 import { motion } from "framer-motion";
 import Footer from "~/components/index/footer";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { env } from "~/env.mjs";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const { data: sessionData } = useSession();
+  const { push } = useRouter();
 
   return (
     <>
@@ -72,7 +75,17 @@ const Home: NextPage = () => {
                     "flex items-center justify-center gap-2 rounded-[28px] bg-[#23272a] px-8 py-4 text-white transition-all duration-200 hover:bg-[#303338] hover:shadow-xl"
                   }
                 >
-                  <div className={"text-[20px] font-medium leading-6"}>
+                  <div
+                    className={"text-[20px] font-medium leading-6"}
+                    onClick={
+                      sessionData
+                        ? () => void push("/app")
+                        : () =>
+                          void signIn(undefined, {
+                            callbackUrl: `${env.NEXT_PUBLIC_APPLICATION_URL}/app`,
+                          })
+                    }
+                  >
                     Open Discord in your browser
                   </div>
                 </button>
