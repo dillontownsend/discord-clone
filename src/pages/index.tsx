@@ -74,6 +74,14 @@ const Home: NextPage = () => {
                   className={
                     "flex items-center justify-center gap-2 rounded-[28px] bg-[#23272a] px-8 py-4 text-white transition-all duration-200 hover:bg-[#303338] hover:shadow-xl"
                   }
+                  onClick={
+                    sessionData
+                      ? () => void push("/app")
+                      : () =>
+                        void signIn(undefined, {
+                          callbackUrl: `${env.NEXT_PUBLIC_APPLICATION_URL}/app`,
+                        })
+                  }
                 >
                   <div
                     className={"text-[20px] font-medium leading-6"}
