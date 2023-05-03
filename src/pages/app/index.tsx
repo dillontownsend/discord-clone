@@ -1,6 +1,6 @@
 import { signOut } from "next-auth/react";
-import type { ReactElement } from "react";
-import type { NextPageWithLayout } from "../_app";
+import { type ReactElement } from "react";
+import { type NextPageWithLayout } from "../_app";
 import AppLayout from "~/layouts/appLayout";
 
 const Index: NextPageWithLayout = () => {
